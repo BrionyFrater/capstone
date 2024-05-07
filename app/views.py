@@ -11,8 +11,18 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
+@app.route('/translator')
+def translator():
+    """Render the website's about page."""
+    return render_template('translator.html')
 
-@app.route('/about/')
+@app.route('/resources')
+def resources():
+    """Render the website's about page."""
+    return render_template('resources.html')
+
+
+@app.route('/about')
 def about():
     """Render the website's about page."""
     return render_template('about.html', name="Mary Jane")

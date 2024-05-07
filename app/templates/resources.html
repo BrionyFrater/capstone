@@ -1,10 +1,5 @@
 {% extends "base.html" %}
-{% set active_page = "about" %}
-
-{% block main %}
-<h1>About</h1>
-<p>This webpage is about {{ name }}.</p>
-{% endblock %}
+{% set active_page = "resources" %}
 
 <!-- {%block header%}
 <div class="header-text">
@@ -21,7 +16,7 @@
   
         <img src="{{url_for('static', filename="images/logo.png")}}" alt="" class="logo">
   
-      </a> 
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -35,13 +30,18 @@
             <a class="nav-link" href="{{ url_for('translator') }}">Translator</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('resources') }}">Resources</a>
+            <a class="nav-link active" href="{{ url_for('resources') }}">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{ url_for('about') }}">About Us</a>
+            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 {% endblock %} -->
+
+{% block main %}
+<h1>Resources</h1>
+<p>This webpage is resources.</p>
+{% endblock %}

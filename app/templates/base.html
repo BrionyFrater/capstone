@@ -16,9 +16,10 @@
   <body>
     <header>
         {% include "header.html" %}
+        <!-- {% block header %}{% endblock %} -->
     </header>
     <main>
-        <div class="container">
+        <div class="">
             {% block main %}{% endblock %}
         </div>
     </main>
@@ -30,6 +31,9 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/app.js') }}"></script> -->
     {% block js %} {% endblock%}
+
+    
   </body>
 </html>

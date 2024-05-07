@@ -1,3 +1,91 @@
+:root{
+    --black: #313638;
+    --white: #F5EEE8;
+    --lime: #BCED09;
+    --light-gray: #C6BCB4;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    padding-top: 5rem;
+    background-color: var(--white);
+
+}
+
+/* main{
+    padding: 5rem; 
+} */
+
+.header-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--light-gray);
+}
+
+#navbarSupportedContent{
+
+    justify-content: flex-end;
+}
+
+.navbar{
+    background-color: #00000000 !important;
+    border-top: 1px solid var(--light-gray);
+    border-bottom: 1px solid var(--light-gray);
+    
+}
+
+.navbar-nav{
+    gap: 71px;
+}
+
+.nav-link{
+    color: var(--black) !important;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.active::before{
+    content: " ";
+    position: absolute;
+    left: 1px;
+    top: 18px;
+    width: 80%;
+    height: 16px;
+    background-color: var(--lime) !important;   
+    z-index: -1;
+}
+
+@media (max-width: 600px){
+    .active::before{
+        content: " ";
+        position: absolute;
+        left: 0px;
+        top: 8px;
+        width: 20%;
+        height: 25px;
+        background-color: var(--lime) !important;   
+        z-index: -1;
+    }
+
+
+    .navbar{
+        border: none
+        
+    }
+}
+
+.logo{
+    width: 60px;
+    height: auto;
+    image-rendering: -moz-crisp-edges;         /* Firefox */
+    image-rendering:   -o-crisp-edges;         /* Opera */
+    image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+    image-rendering: crisp-edges;
+    -ms-interpolation-mode: nearest-neighbor; 
 }

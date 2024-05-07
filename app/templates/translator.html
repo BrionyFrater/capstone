@@ -1,10 +1,11 @@
 {% extends "base.html" %}
-{% set active_page = "about" %}
+{% set active_page = "translator" %}
 
 {% block main %}
-<h1>About</h1>
-<p>This webpage is about {{ name }}.</p>
+<h1>Translator</h1>
+<p>This webpage is translator.</p>
 {% endblock %}
+
 
 <!-- {%block header%}
 <div class="header-text">
@@ -32,13 +33,13 @@
             <a class="nav-link" href="{{ url_for('home') }}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('translator') }}">Translator</a>
+            <a class="nav-link active" href="{{ url_for('translator') }}">Translator</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('resources') }}">Resources</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{ url_for('about') }}">About Us</a>
+            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
           </li>
         </ul>
       </div>
