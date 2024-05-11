@@ -2,6 +2,7 @@
     --black: #313638;
     --white: #F5EEE8;
     --lime: #BCED09;
+    --other-lime: #B1c726;
     --light-gray: #C6BCB4;
 }
 
@@ -88,4 +89,8 @@ body {
     image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor; 
+}
+
+.spaceForOrlando{
+    padding: 3rem 10rem;
 }
