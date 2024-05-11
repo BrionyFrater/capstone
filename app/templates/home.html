@@ -1,51 +1,34 @@
 {% extends "base.html" %}
 {% set active_page = "home" %}
 
-<!-- {%block header%}
-<div class="header-text">
-    <h1 class="">Sign</h1>
-    <h1 class="">Sync</h1>
-  </div>
-  
-  
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-  
-      <a class="navbar-brand" href="{{ url_for('home') }}">
-  
-        <img src="{{url_for('static', filename="images/logo.png")}}" alt="" class="logo">
-  
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li>
-            <a class="nav-link active" href="{{ url_for('home') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('translator') }}">Translator</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('resources') }}">Resources</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('about') }}">About Us</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-{% endblock %} -->
-
+{% block header %}
+  {% include "headerHome.html" %}
+{% endblock %}
 
 {% block main %}
 
-<h1>Flask Starter Code</h1>
+<div class="homeBannerCtn">
+  
+  <video muted autoplay loop class="bannerVid" aria-hidden="true">
+    <source src="{{url_for('static', filename='/videos/bannerVidWideAlt.mp4')}}"/>
+  </video>
+  
+  
 
-<img src="{{url_for('static', filename="/images/home banner.jpg")}}" alt="">
+</div>
+<div class="bannerInfo">
+
+  
+    <h3>HI,  WE&apos;RE</h3>
+    <h1>GESTURE CREATORS</h1>
+  
+    <p>We are proud to introduce SignSync&TRADE;, our AI-powered Jamaican Sign Language (JSL) Translator. It was designed to bridge communication barriers and empower deaf individuals.</p>
+
+    <a href="{{ url_for('translator') }}" class="button-link">
+        <span>Translate</span>
+    </a>
+    
+  
+  </div>
 
 {% endblock %}
