@@ -332,22 +332,22 @@ header .logo{
 
 .bannerInfo h1{
     font-family: 'AkiraExpanded';
-    font-size: 6rem;
-    line-height: 4.7rem;
+    font-size: 4rem;
+    line-height: 3.2rem;
     
 }
 
 .bannerInfo h3{
     font-family: 'AkiraExpanded';
-    font-size: 2rem;
+    font-size: 1rem;
     letter-spacing: 5px;
 }
 
 .bannerInfo p{
     color: var(--black);
     max-width: 600px;
-    font-size: 1.4rem;
-    margin-top: 3rem;
+    font-size: 1.1rem;
+    margin-top: 2rem;
 }
 
 .bannerInfo .button-link, .join .button-link {
@@ -759,13 +759,12 @@ label{
 }
 
 .translationPage .textVideoCtn video{
-    width: 800px;
+    width: 500px;
 }
 
 
 .translationPage .gestureHand {
-    width: 600px;
-        
+    width: 200px;
     transform: rotate(45deg);
     position: absolute;
     top: 0;
@@ -773,7 +772,7 @@ label{
     z-index: -2;
 }
 
-@media(max-width: 1438px){
+@media(max-width: 1250px){
     .translationPage .gestureHand {
         width: 0;
     }
