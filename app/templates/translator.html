@@ -7,13 +7,50 @@
 
 {% block main %}
 
-<div class="spaceForOrlando">
+<div class="otherThanHomeCtn translationPage">
+
+  <div class="gestureHand">
+    <img src="{{url_for('static', filename='images/sign3.png')}}" alt="" aria-hidden="true" class=""/>
+  </div>
 
   <h1>Translator</h1>
-  <p>This webpage is translator.</p>
-  
-  {% include "searchBar.html" %}
 
+  <div class="translationInfo">
+
+    <h4>JSL to Text</h4>
+    <p>Using your device's camera, SignSync captures live sign language gestures and displays the corresponding English text translation in real time.</p>
+
+    <div class="translation">
+
+      {% if translation %}
+        <span>{{translation}}</span>
+      {% else %} 
+        <span class="greyOutText">Ready to translate</span>
+      {% endif %} 
+    </div>
+
+  </div>
+  
+  <div class="textVideoCtn">
+
+    <div>
+      <div class="translationInfo">
+        <h4>Text to JSL</h4>
+        <p>Using our extensive JSL database, SignSync accepts English words and phrases, and displays the corresponding sign language gestures.</p>
+      </div>
+      {% include "searchBar.html" %}
+
+    </div>
+
+    {% if translation %}
+    <video muted autoplay controls>
+      <source src="{{ url_for('static', filename='videos/' + translation + '.mp4') }}">
+    </video>
+    {% endif %} 
+  </div>
+
+  
+  
 </div>
 {% endblock %}
 

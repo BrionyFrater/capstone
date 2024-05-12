@@ -54,7 +54,7 @@ body {
 
 
 
-img{ width: 300px;}
+img{ max-width: 300px;}
 
 a{
     text-decoration: none; 
@@ -187,10 +187,23 @@ footer .linksCtn{
 
 .headerText{
     padding: 1rem 0;
-    color: var(--light-gray);
+    color: var(--black);
     font-family: 'AkiraExpanded';
     
 }
+
+header .logo{
+    width: 50px;
+    height: auto;
+    color: var(--black);
+}
+
+.homeHeader .logo{
+    
+    color: var(--white);
+}
+
+
 
 .homeHeader .headerText{
     padding: 0rem;
@@ -294,17 +307,6 @@ footer .linksCtn{
 
     
     
-}
-
-header .logo{
-    width: 50px;
-    height: auto;
-    color: var(--black);
-}
-
-.homeHeader .logo{
-    
-    color: var(--white);
 }
 
 
@@ -540,9 +542,6 @@ header .logo{
     }
 }
 
-.spaceForOrlando{
-    padding: 3rem 10rem;
-}
 
 .solution{
     display: flex;
@@ -629,9 +628,137 @@ header .logo{
 
 @keyframes circleAnimation {
     0% {
-        transform: scale(0.8);
+        transform: scale(0.5);
     }
-    100% {
+    50% {
         transform: scale(1); 
     }
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+
+
+
+/*3rd party search*/
+.select{
+    
+    width: 70%;
+}
+
+.select2-container--default .select2-selection--single{
+    padding:6px;
+    height: 200px;
+    font-size: 1.2em;  
+    position: relative;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    
+    color: #fff;
+    font-size: 1.3em;
+    padding: 4px 12px;
+    height: 100px;
+    position: absolute;
+    top: -10px !important;
+    right: 20px !important;
+}
+
+.select2-selection__arrow .lucide{
+    color: var(--accent);
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: var(--accent) !important;
+    color: white;
+}
+
+.select2-container--default .select2-results>.select2-results__options {
+    max-height: 150px !important;
+    overflow-y: auto;
+}
+
+.select2-selection{
+    height: 40px !important;
+}
+
+/*TRANSLATE*/
+
+.otherThanHomeCtn{
+    padding: 3rem 10rem;
+}
+
+.otherThanHomeCtn h1{
+    font-family: 'AkiraExpanded';
+    color: var(--other-lime);
+}
+
+.translationPage h4{
+    color: var(--accent);
+}
+
+.translationPage .translation{
+    margin: 3rem 0;
+    font-size: 1.6rem;
+    padding: 2rem 1rem;
+    border: 4px dashed var(--light-gray);
+    border-radius: 30px;
+    font-weight: 400;
+}
+
+.translationPage .greyOutText{
+    color: var(--light-gray);
+}
+
+.searchForm{
+    display: flex;
+    gap: 10px;
+}
+
+.searchForm button{
+    border: none;
+    max-width: fit-content;
+    padding: 0.2rem 0.6rem;
+    border: 3px solid var(--black);
+    border-radius: 50px;
+    box-shadow: 10px 10px var(--black);
+    transition: all 200ms ease-in-out;
+}
+
+.searchForm button:hover{
+    transition: all 200ms ease-in-out;
+    color: var(--black);
+    background-color: var(--accent);
+}
+
+.translationInfo{
+    margin-top: 5rem;
+    max-width: 600px;
+}
+
+label{
+    font-family: 'Rubik';
+    font-weight: 500;
+}
+
+.translationPage .textVideoCtn{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.translationPage .textVideoCtn video{
+    width: 800px;
+}
+
+.translationPage .gestureHand{
+    overflow:hidden;
+}
+.translationPage .gestureHand img{
+    max-width: 800px !important;
+    transform: rotate(-45deg);
+    position: absolute;
+    right: -300px;
+    top: 100px;
 }

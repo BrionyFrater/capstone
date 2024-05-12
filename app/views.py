@@ -1,7 +1,9 @@
 from app import app
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, jsonify
+from app.forms import SearchForm
 
 
+import json
 ###
 # Routing for your application.
 ###
@@ -11,23 +13,52 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
-@app.route('/translator')
+@app.route('/translator', methods=['GET', 'POST'])
+# @app.route('/translator', methods=['GET'])
 def translator():
+
+    form = SearchForm()
+    form.select_field.choices = getSearchChoices()  
+    
+    if form.validate_on_submit():
+        selected_state = form.select_field.data
+
+
+        #query database
+        if selected_state == 'Ohio':
+            translation = "pets"
+        elif selected_state == 'Alaska':
+            translation = "snacks"
+        else:
+            translation = "sunny"
+            
+        return render_template('translator.html', form=form, translation=translation)
+         
+
+
     """Render the website's about page."""
-    return render_template('translator.html')
+    return render_template('translator.html', form=form)
 
 @app.route('/resources')
 def resources():
-    """Render the website's about page."""
     return render_template('resources.html')
 
 
 @app.route('/about')
 def about():
-    """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html')
+
+def getSearchChoices():
+    # Example: Fetch state choices from database
+    # dbFetch = ['Alabama', 'Alaska', 'Alaska']
+    # choices = [('', 'Select a state...')]
+
+    # for choice in dbFetch:
+    #     choices.append((choice, choice))
 
 
+    choices = ["Alabama", "Ohio", "Alaska"]
+    return choices
 ###
 # The functions below should be applicable to all Flask apps.
 ###

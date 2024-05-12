@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <i data-lucide="search"></i>
 
     <form action="">
@@ -11,4 +11,21 @@
     <option value="Safari">
     </datalist>  
     </form>
-</div>
+</div> -->
+
+<form method="POST" action="{{ url_for('translator') }}">
+    {{ form.csrf_token }}
+    
+    {{ form.select_field.label }}
+
+    <div class="searchForm">
+        {{ form.select_field(class_='select') }}
+        <button type="submit">
+            <i data-lucide="rocket"></i> 
+            Enter
+        </button>
+    </div>
+</form>
+
+{{state}}
+
