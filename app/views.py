@@ -21,16 +21,16 @@ def translator():
     form.select_field.choices = getSearchChoices()  
     
     if form.validate_on_submit():
-        selected_state = form.select_field.data
+        selected_text = form.select_field.data
+        #mak query with selected text
 
-
-        #query database
-        if selected_state == 'Ohio':
+        #query database here
+        if selected_text == 'Ohio':
             translation = "pets"
-        elif selected_state == 'Alaska':
+        elif selected_text == 'Alaska':
             translation = "snacks"
         else:
-            translation = "sunny"
+            translation = """The sun"""
             
         return render_template('translator.html', form=form, translation=translation)
          

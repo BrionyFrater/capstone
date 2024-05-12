@@ -48,8 +48,8 @@ body {
     font-family: 'Rubik';
     font-size: 1.2rem;
 
-    margin-bottom: calc(var(--footer-height) + 100px)
-    
+    margin-bottom: calc(var(--footer-height) + 100px);
+   
 }
 
 
@@ -699,12 +699,22 @@ header .logo{
 }
 
 .translationPage .translation{
-    margin: 3rem 0;
+   
     font-size: 1.6rem;
     padding: 2rem 1rem;
     border: 4px dashed var(--light-gray);
     border-radius: 30px;
     font-weight: 400;
+    max-width: 800px;
+}
+
+.translationCtn{
+    margin: 3rem 0;
+}
+
+.translationCtn p{
+    font-family: 'Rubik';
+    font-weight: 500;
 }
 
 .translationPage .greyOutText{
@@ -752,13 +762,19 @@ label{
     width: 800px;
 }
 
-.translationPage .gestureHand{
-    overflow:hidden;
-}
-.translationPage .gestureHand img{
-    max-width: 800px !important;
-    transform: rotate(-45deg);
+
+.translationPage .gestureHand {
+    width: 600px;
+        
+    transform: rotate(45deg);
     position: absolute;
-    right: -300px;
-    top: 100px;
+    top: 0;
+    right: 250px;
+    z-index: -2;
+}
+
+@media(max-width: 1438px){
+    .translationPage .gestureHand {
+        width: 0;
+    }
 }
