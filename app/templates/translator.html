@@ -17,11 +17,15 @@
   <div class="translationInfo">
 
     <h4>JSL to Text</h4>
-    <p>Using your device's camera, SignSync captures live sign language gestures and displays the corresponding English text translation in real time.</p>
+    <p>Using your device's camera or video upload, SignSync captures live sign language gestures and displays the corresponding English text translation in real time.</p>
 
   </div>
 
   <div class="translationCtn">
+    <button>
+      <i data-lucide="upload"></i>
+      Upload
+    </button>
     <p>Translated Video</p>
     <div class="translation">
       {% if translation %}
@@ -40,7 +44,22 @@
         <h4>Text to JSL</h4>
         <p>Using our extensive JSL database, SignSync accepts English words and phrases, and displays the corresponding sign language gestures.</p>
       </div>
-      {% include "searchBar.html" %}
+      
+      <form method="POST" action="{{ url_for('processSearch') }}">
+        {{ searchForm.csrf_token }}
+        
+        {{ searchForm.select_field.label }}
+    
+        <div class="searchForm">
+            {{ searchForm.select_field(class_='select') }}
+            <button type="submit">
+                <i data-lucide="rocket"></i> 
+                Enter
+            </button>
+        </div>
+      </form>
+    
+      {{state}}
 
     </div>
 

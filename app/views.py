@@ -13,15 +13,34 @@ def home():
     """Render website's home page."""
     return render_template('home.html')
 
-@app.route('/translator', methods=['GET', 'POST'])
-# @app.route('/translator', methods=['GET'])
+# @app.route('/translator', methods=['GET', 'POST'])
+@app.route('/translator', methods=['GET'])
 def translator():
 
-    form = SearchForm()
-    form.select_field.choices = getSearchChoices()  
+    # filename = secure_filename(profile_photo.filename)
+    # profile_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+
+    formSearch = SearchForm()
+    formSearch.select_field.choices = getSearchChoices()  
     
-    if form.validate_on_submit():
-        selected_text = form.select_field.data
+   
+    return render_template('translator.html', searchForm=formSearch, translation=request.args.get('translation'))
+
+# @app.route('processUpload', methods=['POST'])
+# def processUpload():
+
+#     filename = secure_filename(profile_photo.filename)
+#     profile_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+
+@app.route('/processSearch', methods=['POST'])
+def processSearch():
+    formSearch = SearchForm()
+    formSearch.select_field.choices = getSearchChoices() 
+
+    if formSearch.validate_on_submit():
+        selected_text = formSearch.select_field.data
         #mak query with selected text
 
         #query database here
@@ -32,12 +51,11 @@ def translator():
         else:
             translation = """The sun"""
             
-        return render_template('translator.html', form=form, translation=translation)
+        return redirect(url_for('translator', translation=translation))
+    
+    return redirect(url_for('page_not_found'))
          
 
-
-    """Render the website's about page."""
-    return render_template('translator.html', form=form)
 
 @app.route('/resources')
 def resources():
