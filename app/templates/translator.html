@@ -22,10 +22,18 @@
   </div>
 
   <div class="translationCtn">
-    <button>
-      <i data-lucide="upload"></i>
-      Upload
-    </button>
+
+    <form method="POST" action="{{ url_for('processUpload') }}" enctype="multipart/form-data">
+      {{ uploadForm.csrf_token }}
+      {{ uploadForm.video}}
+  
+      <button>
+        <i data-lucide="upload"></i>
+        Upload
+      </button>
+    </form>
+
+    
     <p>Translated Video</p>
     <div class="translation">
       {% if translation %}

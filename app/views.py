@@ -1,6 +1,8 @@
+import os
 from app import app
-from flask import render_template, request, redirect, url_for, jsonify
-from app.forms import SearchForm
+from flask import render_template, request, flash, redirect, url_for, jsonify, send_from_directory
+from werkzeug.utils import secure_filename
+from app.forms import SearchForm, UploadForm
 
 
 import json
@@ -24,23 +26,42 @@ def translator():
     formSearch = SearchForm()
     formSearch.select_field.choices = getSearchChoices()  
     
+    formUpload = UploadForm()
    
-    return render_template('translator.html', searchForm=formSearch, translation=request.args.get('translation'))
+    return render_template('translator.html', searchForm=formSearch, uploadForm=formUpload,translation=request.args.get('translation'))
 
-# @app.route('processUpload', methods=['POST'])
-# def processUpload():
+@app.route('/processUpload', methods=['POST'])
+def processUpload():
 
-#     filename = secure_filename(profile_photo.filename)
-#     profile_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    form = UploadForm()
+
+    if form.validate_on_submit():
         
+        # Get file data and save to your uploads folder
+        vid = form.video.data
+        filename = secure_filename(vid.filename)
+        vid.save(os.path.join(
+            app.config['UPLOAD_FOLDER'], filename
+        ))
+
+        #query model here
+        translation = filename #test
+        
+        return redirect(url_for('translator', translation=translation))
+    
+    return 'An error occurred with submitting the form'  
+
+
+     
 
 @app.route('/processSearch', methods=['POST'])
 def processSearch():
-    formSearch = SearchForm()
-    formSearch.select_field.choices = getSearchChoices() 
+    form = SearchForm()
+    form.select_field.choices = getSearchChoices() 
 
-    if formSearch.validate_on_submit():
-        selected_text = formSearch.select_field.data
+    if form.validate_on_submit():
+        
+        selected_text = form.select_field.data
         #mak query with selected text
 
         #query database here
@@ -53,7 +74,7 @@ def processSearch():
             
         return redirect(url_for('translator', translation=translation))
     
-    return redirect(url_for('page_not_found'))
+    return 'An error occurred with submitting the form'
          
 
 
