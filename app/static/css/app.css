@@ -683,6 +683,7 @@ header .logo{
     height: 40px !important;
 }
 
+
 /*TRANSLATE*/
 
 .otherThanHomeCtn{
@@ -701,9 +702,9 @@ header .logo{
 .translationPage .translation{
    
     font-size: 1.6rem;
-    padding: 2rem 1rem;
-    border: 4px dashed var(--light-gray);
-    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    border: 3px dashed var(--light-gray);
+    border-radius: 10px;
     font-weight: 400;
     max-width: 800px;
 }
@@ -743,7 +744,6 @@ header .logo{
 }
 
 .translationInfo{
-    margin-top: 5rem;
     max-width: 600px;
 }
 
@@ -756,6 +756,8 @@ label{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: flex-start;
+    margin-top: 6rem;
 }
 
 .translationPage .textVideoCtn video{
@@ -770,6 +772,34 @@ label{
     top: 0;
     right: 250px;
     z-index: -2;
+}
+
+.uploadForm{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+}
+
+.uploadForm .formInput{
+    display: flex;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.formInput > button{
+    border: none;
+    border-radius: 50px;
+    padding: 0.2rem 0.6rem;
+    max-width: fit-content;
+    border: 3px solid var(--black);
+    border-radius: 50px;
+    box-shadow: 10px 10px var(--black);
+    transition: all 200ms ease-in-out
+}
+
+.formInput > button:hover{
+    background-color: var(--accent);
+    transition: all 200ms ease-in-out
 }
 
 @media(max-width: 1250px){

@@ -23,19 +23,23 @@
 
   <div class="translationCtn">
 
-    <form method="POST" action="{{ url_for('processUpload') }}" enctype="multipart/form-data">
+    <form method="POST" action="{{ url_for('processUpload') }}" enctype="multipart/form-data" class="uploadForm">
+      
+     
       {{ uploadForm.csrf_token }}
 
       <label>{{ uploadForm.video.label}}</label>
 
-      {{ uploadForm.video}}
-  
-      <button>
-        <i data-lucide="upload"></i>
-        Upload
-      </button>
-    </form>
+      <div class="formInput">
+        {{ uploadForm.video}}
+    
+        <button>
+          <i data-lucide="upload"></i>
+          Upload
+        </button>
+      </div>
 
+    </form>
     
     <p>Translated Video</p>
     <div class="translation">
@@ -47,7 +51,7 @@
     </div>
   </div>
   
-  
+
   <div class="textVideoCtn">
 
     <div>

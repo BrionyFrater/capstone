@@ -19,10 +19,6 @@ def home():
 @app.route('/translator', methods=['GET'])
 def translator():
 
-    # filename = secure_filename(profile_photo.filename)
-    # profile_photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        
-
     formSearch = SearchForm()
     formSearch.select_field.choices = getSearchChoices()  
     
