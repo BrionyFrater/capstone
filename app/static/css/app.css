@@ -350,7 +350,7 @@ header .logo{
     margin-top: 1rem;
 }
 
-.bannerInfo .button-link, .join .button-link {
+.button-link{
     border: none;
     border-radius: 90px;
     font-family: 'AkiraExpanded';
@@ -368,7 +368,7 @@ header .logo{
     margin-top: 1.7rem;
 }
 
-.bannerInfo .button-link::before, .join .button-link::before {
+.button-link::before{
     content: "";
     position: absolute;
     top: 0;
@@ -379,13 +379,17 @@ header .logo{
     transition: left 0.3s ease;
 }
 
-.bannerInfo .button-link:hover::before, .join .button-link:hover::before {
+.button-link:hover::before {
     left: 0;
 }
 
-.bannerInfo .button-link span, .join .button-link span {
+.button-link span {
     position: relative;
     z-index: 1;
+}
+
+.button-link:hover{
+    color: var(--black);
 }
 
 .underBanner{
@@ -1006,4 +1010,16 @@ label{
     background-repeat: no-repeat;
     
     
+}
+
+.jamdeafContact{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 4rem;
+}
+
+.jamdeafContact .button-link{
+    margin-top: 0;
+    margin-bottom: 6rem;
 }
