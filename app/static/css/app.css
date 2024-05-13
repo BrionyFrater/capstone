@@ -777,3 +777,59 @@ label{
         width: 0;
     }
 }
+
+.aboutInfoCtn{
+    display: flex;
+}
+
+.aboutInfoCtn > div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 750px;
+
+}
+
+.aboutInfoCtn h5{
+
+    font-family: 'AkiraExpanded';
+    font-size: 1.3rem;
+    margin-top: 3rem;
+    color: var(--accent);
+
+}
+
+.aboutInfoCtn .lucide{
+    color: var(--other-lime);
+}
+
+.aboutInfoCtn .icons{
+    display: flex;
+    justify-content: center;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+
+
+
+.wave{
+    color: var(--other-lime);
+    animation: waveAnimation 1s ease-in-out infinite alternate;
+}
+
+.lastParaAbout{
+    margin-top: 1.5rem;
+}
+
+@keyframes waveAnimation {
+    0% {
+        transform: rotate(-20deg);
+    }
+    50% {
+        transform: rotate(40deg); 
+    }
+    100% {
+        transform: rotate(20deg); 
+    }
+}
+

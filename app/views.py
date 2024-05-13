@@ -65,12 +65,12 @@ def processSearch():
         #mak query with selected text
 
         #query database here
-        if selected_text == 'Ohio':
+        if selected_text == 'Hello How Are You':
             translation = "pets"
-        elif selected_text == 'Alaska':
+        elif selected_text == 'What is your Name':
             translation = "snacks"
         else:
-            translation = """The sun"""
+            translation = """no"""
             
         return redirect(url_for('translator', translation=translation))
     
@@ -96,7 +96,7 @@ def getSearchChoices():
     #     choices.append((choice, choice))
 
 
-    choices = ["Alabama", "Ohio", "Alaska"]
+    choices = ["Hello How Are You", "What is your name", "no"]
     return choices
 ###
 # The functions below should be applicable to all Flask apps.

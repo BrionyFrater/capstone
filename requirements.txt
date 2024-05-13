@@ -8,4 +8,5 @@ MarkupSafe==2.1.2
 python-dotenv==0.21.1
 Werkzeug==2.2.2
 zipp==3.12.1
-flask_wtf
+WTForms==3.0.1
+Flask-WTF==1.2.1

@@ -7,7 +7,7 @@
 
 {% block main %}
 
-<div class="otherThanHomeCtn translationPage">
+<section class="otherThanHomeCtn translationPage">
 
   <img src="{{url_for('static', filename='images/sign3.png')}}" alt="" aria-hidden="true" class="gestureHand"/>
   
@@ -25,6 +25,9 @@
 
     <form method="POST" action="{{ url_for('processUpload') }}" enctype="multipart/form-data">
       {{ uploadForm.csrf_token }}
+
+      <label>{{ uploadForm.video.label}}</label>
+
       {{ uploadForm.video}}
   
       <button>
@@ -83,7 +86,7 @@
 
   
   
-</div>
+</section>
 {% endblock %}
 
 
