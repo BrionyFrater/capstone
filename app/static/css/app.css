@@ -487,7 +487,7 @@ header .logo{
 .featCtn{
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .feat h4{
@@ -808,6 +808,16 @@ label{
     }
 }
 
+@media(max-width: 600px){
+    .uploadForm .formInput{
+        
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+
 .aboutInfoCtn{
     display: flex;
 }
@@ -863,3 +873,137 @@ label{
     }
 }
 
+/*-----RESOURCE--------*/
+
+.resourcePage .grid{
+    display: grid;
+    grid-template-areas:
+        "vocab vocab vocab vocab"
+        "research courses courses courses"
+        "research games games terms";
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    grid-template-rows: minmax(100px, auto) 1fr auto; 
+    gap: 10px;
+}
+
+@media (max-width: 952px) {
+    .resourcePage .grid{
+        
+        grid-template-areas:
+            "vocab vocab vocab vocab"
+            "courses courses courses courses"
+            "research research research research"
+            "games games games games"
+            "terms terms terms terms";
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto; 
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 780px) {
+    .otherThanHomeCtn{
+        
+        padding: 3rem;
+    }
+
+    .featCtn{
+        flex-direction: column;
+        align-items: center;
+        gap: 34px;
+
+    }
+
+    .feat{
+        max-width: 100%;
+    }
+}
+
+.grid > div{
+    /* padding: 1rem; */
+    border-radius: 7px;
+    min-height: 300px;
+    color: var(--white);
+
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%);
+    transition: all 0.4s ease-in-out;
+
+    font-family: 'AkiraExpanded';
+
+    
+}
+
+.grid > div:hover{
+   
+    -webkit-filter: grayscale(0%); 
+    filter: grayscale(0%);
+    transition: all 0.4s ease-in-out;
+    
+}
+
+.grid a{
+    display: block; /* Make anchor tag a block-level element */
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* Remove underline by default */
+    color: inherit;
+    padding: 1rem;
+}
+
+
+.courses {
+    grid-area: courses;
+    background-color: var(--black);
+
+    background-image: url('../images/courses.jpg');
+    background-size: cover; 
+    background-position: 50% 20%; 
+    background-repeat: no-repeat; 
+    
+}
+
+.research {
+    grid-area: research;
+    background-color: var(--black);
+
+    background-image: url('../images/reserch2.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.games {
+    grid-area: games;
+    background-color: var(--black);
+
+    background-image: url('../images/games.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.vocab {
+    grid-area: vocab;
+    background-color: var(--black);
+
+    background-image: url('../images/vocabulary.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+
+}
+
+
+.terms {
+    grid-area: terms;
+    background-color: var(--black);
+
+    background-image: url('../images/deafCulture.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    
+    
+}
