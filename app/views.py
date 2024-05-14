@@ -1,14 +1,42 @@
 import os
 from app import app
-from flask import render_template, request, flash, redirect, url_for, jsonify, send_from_directory
+from flask import render_template, request, flash, redirect, url_for, jsonify, send_from_directory, Response
 from werkzeug.utils import secure_filename
 from app.forms import SearchForm, UploadForm
-
+import cv2
 
 import json
+
+
+#make camera
+camera = cv2.VideoCapture(1)
+
+def generate_frames():
+
+    while True:
+        #get frame
+        success, frame = camera.read()
+
+        if not success:
+            break
+        else:
+            #might need to change to png
+            result, encoded_image = cv2.imencode('.jpg', frame)
+            final = encoded_image.tobytes()
+
+        yield(b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+
+
+
+
+
 ###
 # Routing for your application.
 ###
+@app.route('/stream')
+def stream():
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame') 
 
 @app.route('/')
 def home():
