@@ -28,16 +28,14 @@ def generate_frames():
 
 
 
-
+@app.route('/stream')
+def stream():
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame') 
 
 
 ###
 # Routing for your application.
 ###
-@app.route('/stream')
-def stream():
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame') 
-
 @app.route('/')
 def home():
     """Render website's home page."""
@@ -71,7 +69,7 @@ def processUpload():
         #query model here
         translation = filename #test
         
-        return redirect(url_for('translator', translation=translation))
+        return redirect(url_for('translator', translation=translation, scrollTo='videoUpload'))
     
     for error in form.video.errors:
         flash(error)

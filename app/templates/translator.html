@@ -32,7 +32,7 @@
 
       {{ uploadForm.csrf_token }}
 
-      <label>{{ uploadForm.video.label}}</label>
+      <label>{{ uploadForm.video.label}} <i data-lucide="video"></i></label>
 
       <div class="formInput">
         {{ uploadForm.video}}
@@ -47,10 +47,12 @@
     
     <p>Translated Video</p>
     <div class="translation">
-      {% if translation %}
+      {% if scrollTo == "videoUpload" and translation %}
         <span class="vidUploadTranslation">{{translation}}</span>
       {% else %} 
-        <span class="greyOutText">Ready to translate</span>
+        <span class="greyOutText">
+          Ready to translate your video upload
+        </span>
       {% endif %} 
     </div>
   </div>
@@ -67,7 +69,12 @@
       <form method="POST" action="{{ url_for('processSearch') }}">
         {{ searchForm.csrf_token }}
         
-        {{ searchForm.select_field.label }}
+        <span>
+          
+          {{ searchForm.select_field.label }}
+          <i data-lucide="text-search"></i>
+        </span>
+        
     
         <div class="searchForm">
             {{ searchForm.select_field(class_='select') }}
