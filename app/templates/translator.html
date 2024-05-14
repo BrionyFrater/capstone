@@ -21,11 +21,13 @@
 
   </div>
 
+  
   <div class="translationCtn">
 
     <form method="POST" action="{{ url_for('processUpload') }}" enctype="multipart/form-data" class="uploadForm">
       
-     
+      {% include 'flash_messages.html' %}
+
       {{ uploadForm.csrf_token }}
 
       <label>{{ uploadForm.video.label}}</label>
@@ -44,7 +46,7 @@
     <p>Translated Video</p>
     <div class="translation">
       {% if translation %}
-        <span>{{translation}}</span>
+        <span class="vidUploadTranslation">{{translation}}</span>
       {% else %} 
         <span class="greyOutText">Ready to translate</span>
       {% endif %} 
@@ -78,11 +80,11 @@
 
     </div>
 
-    {% if translation %}
-    <video muted autoplay controls>
-      <source src="{{ url_for('static', filename='videos/' + translation + '.mp4') }}">
-      <!-- <source src="{{ url_for('static', filename='videos/bannerVid.mp4') }}"> -->
-    </video>    
+    {% if scrollTo == "search" and translation %}
+      <video muted autoplay controls>
+        <source src="{{ url_for('static', filename='videos/' + translation + '.mp4') }}">
+        <!-- <source src="{{ url_for('static', filename='videos/bannerVid.mp4') }}"> -->
+      </video>    
     {% endif %} 
 
     
@@ -93,4 +95,21 @@
 </section>
 {% endblock %}
 
+
+{% block js %}
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+  
+    const scrollTo = params.get('scrollTo') || '';
+
+    
+    if (scrollTo === 'search') {
+        const element = document.querySelector('.textVideoCtn');
+        element.scrollIntoView({ behavior: 'smooth' });
+        
+    }
+
+  </script>
+{% endblock %}
 

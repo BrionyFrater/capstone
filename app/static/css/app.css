@@ -20,8 +20,9 @@
     --green: #09814A;
     --yellow: #E7B84B;
     --accent2: #9064df;
-    --accent: #ff7b18;
     --accent: #ff8e38;
+    --red: #fd9d9d;
+
     --footer-height: 332px;
 }
 
@@ -99,6 +100,32 @@ a:focus-visible {
 header{
     position: relative;
     z-index: 5;
+}
+
+.flash_msg{
+    color: var(--white);
+    background-color: var(--red);
+    padding: 5px;
+    padding-right: 1.1rem;
+    border-radius: 20px;
+    position: relative;
+    max-width: fit-content;
+}
+
+.flash_msg::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--red);
+    border: 2px solid var(--white);
+    border-radius: 50px;
+}
+
+input:hover{
+    cursor: pointer;
 }
 
 footer{
@@ -238,6 +265,11 @@ header .logo{
 }
 
 
+
+.navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 142, 56' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
 .navbar{
     background-color: #00000000 !important;
     border-top: 1px solid var(--light-gray);
@@ -287,29 +319,6 @@ header .logo{
 
 
 
-@media (max-width: 600px){
-    .active::before{
-        content: " ";
-        position: absolute;
-        left: 0px;
-        top: 8px;
-        width: 20%;
-        height: 25px;
-        background-color: var(--lime) !important;   
-        z-index: -1;
-    }
-
-
-    .navbar{
-        border: none
-        
-    }
-
-    
-    
-}
-
-
 .bannerVid{
     width: 100%;
     border-radius: 0 0 3% 3%; 
@@ -353,6 +362,7 @@ header .logo{
 .button-link{
     border: none;
     border-radius: 90px;
+    text-align: center;
     font-family: 'AkiraExpanded';
     padding: 1rem 5rem;
     max-width: fit-content;
@@ -367,6 +377,8 @@ header .logo{
     transition: background-color 0.3s ease;
     margin-top: 1.7rem;
 }
+
+
 
 .button-link::before{
     content: "";
@@ -439,6 +451,7 @@ header .logo{
 @media (max-width: 700px) {
     .underBanner{
         flex-direction: column;
+        align-items: center;
     }
 }
 
@@ -550,7 +563,8 @@ header .logo{
 .solution{
     display: flex;
     justify-content: center;
-    margin-top: 3rem;
+  
+    margin: 0 3rem 3rem 3rem;
     font-family: 'Rubik';
     font-weight: 700;
     
@@ -588,6 +602,7 @@ header .logo{
     margin-top: 3rem;
     font-family: 'Rubik';
     font-weight: 400;
+    margin: 0 3rem;
     
 }
 
@@ -597,7 +612,6 @@ header .logo{
     justify-content: center;
     max-width: 700px;
     text-align: center;
-    padding: 0 3rem;
     position: relative;
 }
 
@@ -648,8 +662,9 @@ header .logo{
 /*3rd party search*/
 .select{
     
-    width: 70%;
+    width: 100%;
 }
+
 
 .select2-container--default .select2-selection--single{
     padding:6px;
@@ -713,6 +728,29 @@ header .logo{
     max-width: 800px;
 }
 
+.vidUploadTranslation{
+    color: var(--black);
+    font-weight: 400;
+    animation: vidUploadTransAnimation 0.9s ease-in-out;
+    
+}
+
+@keyframes vidUploadTransAnimation {
+    0% {
+        color: var(--light-grey);
+        font-weight: 400;
+    }
+    50% {
+        
+        font-weight: 500;
+    }
+    100% {
+        color: var(--black);
+        font-weight: 400;
+    }
+}
+
+
 .translationCtn{
     margin: 3rem 0;
 }
@@ -762,6 +800,7 @@ label{
     flex-wrap: wrap;
     align-items: flex-start;
     margin-top: 6rem;
+    gap: 1rem;
 }
 
 .translationPage .textVideoCtn video{
@@ -1022,4 +1061,55 @@ label{
 .jamdeafContact .button-link{
     margin-top: 0;
     margin-bottom: 6rem;
+}
+
+
+@media (max-width: 600px){
+    .button-link{
+        font-size: 1rem;
+        padding: 1rem;
+    }
+
+    .bannerInfo h1{
+        font-size: 2.5rem;
+        line-height: 2.1rem;
+    }
+
+    .bannerInfo{
+        margin-top: 5.5rem;
+        padding: 1.5rem 3rem;
+    }
+
+    footer{
+        padding: 1rem;
+    }
+
+    .searchForm{
+        flex-direction: column;
+    }
+
+    .active::before{
+        content: " ";
+        position: absolute;
+        left: 0px;
+        top: 8px;
+        width: 20%;
+        height: 25px;
+        background-color: var(--lime) !important;   
+        z-index: -1;
+    }
+
+
+    .navbar{
+        border: none
+        
+    }
+
+}
+
+
+@media (max-width: 470px){
+    .otherThanHomeCtn{
+        padding: 1.5rem;
+    }
 }

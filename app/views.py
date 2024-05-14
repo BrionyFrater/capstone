@@ -24,7 +24,7 @@ def translator():
     
     formUpload = UploadForm()
    
-    return render_template('translator.html', searchForm=formSearch, uploadForm=formUpload,translation=request.args.get('translation'))
+    return render_template('translator.html', searchForm=formSearch, uploadForm=formUpload, scrollTo=request.args.get('scrollTo'), translation=request.args.get('translation'))
 
 @app.route('/processUpload', methods=['POST'])
 def processUpload():
@@ -45,7 +45,10 @@ def processUpload():
         
         return redirect(url_for('translator', translation=translation))
     
-    return 'An error occurred with submitting the form'  
+    for error in form.video.errors:
+        flash(error)
+   
+    return redirect(url_for('translator'))
 
 
      
@@ -63,12 +66,12 @@ def processSearch():
         #query database here
         if selected_text == 'Hello How Are You':
             translation = "pets"
-        elif selected_text == 'What is your Name':
+        elif selected_text == 'What is your name':
             translation = "snacks"
         else:
-            translation = """no"""
+            translation = "no"
             
-        return redirect(url_for('translator', translation=translation))
+        return redirect(url_for('translator', translation=translation, scrollTo='search'))
     
     return 'An error occurred with submitting the form'
          
