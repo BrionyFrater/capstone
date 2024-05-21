@@ -10,7 +10,7 @@ We are proud to introduce SignSync, an AI-powered Jamaican Sign Language (JSL) T
 - [Orlando DRUMMONDS](https://github.com/OrlandoCodex)
 - [Zoe DUNCAN](https://github.com/Zodun)
 - [Briony FRATER](https://github.com/BrionyFrater)
-- [Khadeem LATTIBEAUDIERE](https://github.com/BrionyFrater)
+- [Khadeem LATTIBEAUDIERE](https://github.com/khadeem20)
 
 To start -
 
