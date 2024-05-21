@@ -1,6 +1,12 @@
-# Final Project
+# SignSync
 
-This is the frontend for the final project of my computing degree.
+JAMAICAN SIGN LANGUAGE TRANSLATOR
+
+##Our Team 
+- Orlando DRUMMONDS https://github.com/OrlandoCodex
+- Zoe DUNCAN https://github.com/Zodun
+- Briony FRATER https://github.com/BrionyFrater
+- Khadeem LATTIBEAUDIERE https://github.com/BrionyFrater
 
 To start -
 
